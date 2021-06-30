@@ -7,7 +7,7 @@ mkdir "$dirname"
 for i in "${@}";do
         cp -R "$i" "$dirname/$i"
 done
-cd "$dirname" || exit
+cd "$dirname"||exit
 chmod -R +x .
 tar --numeric-owner -cpzf "$tarname.tar.gz" .
 mv "$tarname.tar.gz" ../

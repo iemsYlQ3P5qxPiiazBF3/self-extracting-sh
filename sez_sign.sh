@@ -19,7 +19,7 @@ cat \$0|tail -c $(wc -c < "$tarname".tar.gz) > \"$tarname.tar.gz\"
 echo \"$sig\"|gpg --decrypt
 echo \"(\$(sha256sum $tarname.tar.gz|head -c 64))\"
 read -erp \"continue [y/n]: \" continue
-[ \"\$continue\" == \"y\" ]&&:||exit
+[ \"\$continue\" == \"y\" ]||exit
 if [ \"\$(sha256sum $tarname.tar.gz|head -c 64)\" != \"$tarhash\" ];then
         echo \"$tarhash != \$(sha256sum $tarname.tar.gz|head -c 64)\"
         exit 1
